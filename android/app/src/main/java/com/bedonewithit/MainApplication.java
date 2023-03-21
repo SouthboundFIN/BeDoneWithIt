@@ -1,4 +1,4 @@
-package com.paavovirtanen.bedonewithit;
+package com.bedonewithit;
 
 import android.app.Application;
 import com.facebook.react.PackageList;

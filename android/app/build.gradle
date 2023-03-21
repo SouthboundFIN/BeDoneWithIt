@@ -93,9 +93,9 @@ android {
 
     compileSdkVersion rootProject.ext.compileSdkVersion
 
-    namespace "com.paavovirtanen.bedonewithit"
+    namespace "com.bedonewithit"
     defaultConfig {
-        applicationId "com.paavovirtanen.bedonewithit"
+        applicationId "com.bedonewithit"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 1
