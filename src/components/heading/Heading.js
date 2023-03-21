@@ -6,10 +6,10 @@ import { View, Text, StyleSheet } from 'react-native';
 const Heading = () => (
     <View style={styles.header}>
         <Text style={styles.headerText}>
-            todos
+            beDONEWITHit
         </Text>
     </View>
-)
+);
 
 const styles = StyleSheet.create({
     header: {
@@ -17,9 +17,9 @@ const styles = StyleSheet.create({
     },
     headerText: {
         textAlign: 'center',
-        fontSize: 72,
-        color: 'rgba(175,47,47,0.25)',
-        fontWeight: '100'
+        fontSize: 42,
+        //color: 'rgba(175,47,47,0.25)',
+        //fontWeight: '400'
     }
 });
 

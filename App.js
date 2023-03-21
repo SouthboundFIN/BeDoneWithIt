@@ -7,24 +7,56 @@ import {
     Text
 } from 'react-native';
 
+import Heading from './src/components/heading/Heading';
+import Input from './src/components/input/Input';
+import Button from './src/components/button/Button';
+import ToDoList from './src/components/todolist/ToDoList';
+
+// global toDoIndex
+let toDoIndex = 0;
 
 class App extends Component {
     constructor() {
         super()
         this.state = {
             inputValue: '',
-            todos: [],
+            toDoItems: [],
             type: 'All'
         }
+        //this.submitToDo = this.submitToDo.bind(this);
+    }
+    inputChange(inputValue) {
+        //console.log(`input value change ${inputValue}`);
+        this.setState({ inputValue });
+    }
+    submitToDo = () => {
+        if (this.state.inputValue.match(/^\s*$/)) {
+            return;
+        }
+        const toDoItem = {
+            title: this.state.inputValue,
+            toDoIndex,
+            complete: false
+        }
+        toDoIndex++;
+        const toDoItems = [...this.state.toDoItems, toDoItem];
+        this.setState({ toDoItems, inputValue: '' }, () => {
+            console.log(`State set to ${JSON.stringify(this.state)}`);
+        })
     }
     render() {
+        const { inputValue, toDoItems } = this.state;
         return (
             <View style={styles.container}>
                 <ScrollView keyboardShouldPersistTaps='always'
                     style={styles.content}>
-                    <View style={styles.mainview}>
-                        <Text>Be Done With It</Text>
-                    </View>
+                    <Heading />
+                    <Input
+                        inputValue={inputValue}
+                        inputChange={(text) => this.inputChange(text)}
+                    />
+                    <Button submitToDo={this.submitToDo} />
+                <ToDoList toDoItems={toDoItems}/>
                 </ScrollView>
             </View>
         )
