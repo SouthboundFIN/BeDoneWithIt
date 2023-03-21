@@ -9,6 +9,14 @@ import {
 
 
 class App extends Component {
+    constructor() {
+        super()
+        this.state = {
+            inputValue: '',
+            todos: [],
+            type: 'All'
+        }
+    }
     render() {
         return (
             <View style={styles.container}>
