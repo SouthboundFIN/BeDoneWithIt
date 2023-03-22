@@ -20,14 +20,18 @@ const styles = StyleSheet.create({
     button: {
         height: 50,
         paddingHorizontal: 20,
-        width: 160,
+        width: 200,
         marginHorizontal: 20,
-        marginTop: 20,
+        marginTop: 10,
+        marginBottom: 20,
         borderWidth: 1,
+        borderColor: '#222',
         justifyContent: 'center',
-        alignItems: 'center'
+        alignItems: 'center',
+        backgroundColor: '#343'
     },
     submit: {
+        fontSize: 17,
         fontWeight: '400'
     }
 });

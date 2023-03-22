@@ -13,13 +13,13 @@ const Heading = () => (
 
 const styles = StyleSheet.create({
     header: {
-        marginTop: 80
+        //marginTop: 0
     },
     headerText: {
         textAlign: 'center',
         fontSize: 42,
         //color: 'rgba(175,47,47,0.25)',
-        //fontWeight: '400'
+        fontWeight: '500'
     }
 });
 

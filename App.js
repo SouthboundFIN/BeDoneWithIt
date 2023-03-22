@@ -1,11 +1,10 @@
 import React, { Component } from 'react';
-// import type { Node } from 'react';
 import {
     ScrollView,
     StyleSheet,
     View,
-    Text
 } from 'react-native';
+
 
 import Heading from './src/components/heading/Heading';
 import Input from './src/components/input/Input';
@@ -23,7 +22,6 @@ class App extends Component {
             toDoItems: [],
             type: 'All'
         }
-        //this.submitToDo = this.submitToDo.bind(this);
     }
     inputChange(inputValue) {
         //console.log(`input value change ${inputValue}`);
@@ -44,6 +42,20 @@ class App extends Component {
             console.log(`State set to ${JSON.stringify(this.state)}`);
         })
     }
+    toggleComplete = (idx) => {
+        let toDoItems = this.state.toDoItems;
+        toDoItems.forEach((toDoItem) => {
+            if (toDoItem.toDoIndex === idx) {
+                toDoItem.complete = !toDoItem.complete;
+            }
+        })
+        this.setState({ toDoItems });
+    }
+    deleteToDoItem = (idx) => {
+        let { toDoItems } = this.state;
+        toDoItems = toDoItems.filter((toDoItem) => toDoItem.toDoIndex !== idx);
+        this.setState({ toDoItems });
+    }
     render() {
         const { inputValue, toDoItems } = this.state;
         return (
@@ -56,7 +68,13 @@ class App extends Component {
                         inputChange={(text) => this.inputChange(text)}
                     />
                     <Button submitToDo={this.submitToDo} />
-                <ToDoList toDoItems={toDoItems}/>
+                    <ToDoList
+                        toDoItems={toDoItems}
+                        toggleComplete={this.toggleComplete}
+                        deleteToDoItem={this.deleteToDoItem}
+                    />
+                    <View style={styles.footer} />
+
                 </ScrollView>
             </View>
         )
@@ -66,18 +84,20 @@ class App extends Component {
 
 const styles = StyleSheet.create({
     container: {
-        flex: 1,
-        //backgroundColor: '#121212'
+        flexGrow: 1,
     },
     content: {
-        flex: 1,
-        paddingTop: 60
+        paddingVertical: 40,
     },
     mainview: {
         flex: 1,
         alignItems: 'center',
         justifyContent: 'center',
+    },
+    footer: {
+        marginBottom: 50
     }
 });
+
 
 export default App;

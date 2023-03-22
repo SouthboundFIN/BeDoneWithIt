@@ -21,14 +21,15 @@ const styles = StyleSheet.create({
         marginTop: 30,
         shadowOpacity: 0.2,
         shadowRadius: 3,
-        shadowColor: '#ccc',
+        shadowColor: 'black',
         shadowOffset: { width: 2, height: 2 }
     },
     input: {
+        fontSize: 16,
         height: 60,
-        backgroundColor: '#555',
+        backgroundColor: '#222',
         paddingLeft: 10,
-        paddingRight: 10
+        paddingRight: 10,
     }
 });
 
